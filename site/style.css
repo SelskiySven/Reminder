@@ -34,8 +34,8 @@ td{
     color: rgb(24, 177, 19);    
 }
 #start3{
-    width: 98vw;
-    height: 98vh;
+    width: 95vw;
+    height: 95vh;
     margin: 0;
     padding: 0;
     display: flex;
@@ -52,4 +52,13 @@ table tr td:last-child {
 }
 .lastchild{
     width: 1vmin;
+}
+tbody{
+    font-weight: bold;
+}
+tr{
+    font-weight: normal;
+}
+.evname{
+    margin-inline: 10px;
 }
