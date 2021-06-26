@@ -95,19 +95,20 @@ function add(event = document.getElementById("event").value, time = document.get
     let error = false
     if (!addfromls) {
         if (time == "") {
-            alert("Введите время")
+            document.getElementById("errorlog").innerHTML = "Введите время <br>"
             error = true
         }
         if (date < fulldate) {
-            alert("Введите корректную дату")
+            document.getElementById("errorlog").innerHTML = document.getElementById("errorlog").innerHTML + "Введите корректную дату <br>"
             error = true
         }
         if (date == fulldate & time < fulltime & error == false) {
-            alert("Введите корректное время")
+            document.getElementById("errorlog").innerHTML = document.getElementById("errorlog").innerHTML +"Введите корректное время <br>"
             error = true
         }
     }
     if (error == false) {
+        document.getElementById("errorlog").innerHTML = ""
         if (!addfromls) {
             localStorage.setItem("eventname" + numevents, event)
             localStorage.setItem("eventdate" + numevents, date)
@@ -140,6 +141,7 @@ function add(event = document.getElementById("event").value, time = document.get
                 document.getElementById("tomorrow").append(tr)
                 let td = document.createElement("td")
                 td.innerText = "Завтра"
+                td.className = "datename"
                 document.getElementById("trtomorrow").append(td)
             }
             table = document.getElementById("tomorrow")
@@ -160,6 +162,7 @@ function add(event = document.getElementById("event").value, time = document.get
                 document.getElementById("yesterday").append(tr)
                 let td = document.createElement("td")
                 td.innerText = "Вчера"
+                td.className = "datename"
                 document.getElementById("tryesterday").append(td)
             }
             table = document.getElementById("yesterday")
@@ -218,6 +221,7 @@ function add(event = document.getElementById("event").value, time = document.get
                 document.getElementById("tabledate" + date.replaceAll("-", "")).append(tbody)
                 let tr = document.createElement("tr")
                 tr.id = "trdate" + date.replaceAll("-", "")
+                td.className = "datename"
                 document.getElementById("date" + date.replaceAll("-", "")).append(tr)
                 let td = document.createElement("td")
                 td.innerText = date.slice(8, 10) + "." + date.slice(5, 7) + "." + date.slice(0, 4)
